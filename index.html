@@ -7,7 +7,7 @@
   <meta name="description" content="Treat the driver upstream, watch the cost chain collapse downstream. For a significant, high-cost, identifiable group of adults, untreated ADHD is driving and recycling the addiction.">
   <meta name="theme-color" content="#100d0b">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-  <link rel="icon" href="https://cccph.otos.network/otos-brain-icon.png" type="image/png">
+  <link rel="icon" href="assets/brain.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="https://cccph.otos.network/otos-brain-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OTOS Continuity">
@@ -861,30 +861,42 @@ details.srcbox h3{font-size:1rem!important;margin-top:1.4rem!important}
 .r2-btns .b-next{flex:1;background:#f26a1b;color:#100d0b;border-color:#f26a1b}
 .r2-btns button:disabled{opacity:.35;cursor:default}
 .r2-btns button:focus-visible{outline:3px solid #f26a1b;outline-offset:3px}
-@container r2fig (min-width:1060px){
-.r2-stage{aspect-ratio:1100/640;padding:0;border-radius:18px}
-.r2-diagram{position:absolute;left:26.545%;top:3.75%;width:46.909%;margin:0}
-.r2-panel{position:absolute;inset:0;margin:0;border:0;padding:0;pointer-events:none;min-height:0!important}
-.r2-caret,.r2-key{display:none}
-.r2-card{position:absolute;width:22.545%;padding:14px;left:75.27%;top:28px;pointer-events:auto}
-.r2-card.r{border-left:3px solid #f26a1b}
-.r2-card.l{border-right:3px solid #f26a1b}
-.r2-eyebrow{font-size:13px}
-.r2-event{font-size:28px;line-height:1.12}
-.r2-reply{font-size:22px}
-.r2-disc{width:22px;height:22px;font-size:12px}
-.r2-step{font-size:16px;line-height:1.35;min-height:2.7em}
-.r2-leader{display:block;position:absolute;height:1.5px;background:rgba(242,106,27,.7);opacity:0;pointer-events:none}
-.r2-leader::before{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:#f26a1b;top:-1.25px}
-.r2-leader.r::before{left:-2px}
-.r2-leader.l::before{right:-2px}
-.r2-ctl{position:absolute;left:2.182%;right:2.182%;top:91.25%;bottom:0;margin:0;border-top:1px solid rgba(246,240,228,.10);
-    display:flex;align-items:center;justify-content:space-between;gap:24px}
-.r2-seg{width:44.4%;height:44px}
-.r2-btns{margin:0;gap:10px}
-.r2-btns .b-prev,.r2-btns .b-play{flex:0 0 auto;min-width:96px}
-.r2-btns .b-next{flex:0 0 auto;min-width:134px}
-}
+/* 7 Oct 2026 (round 4.34): ONE LOCKED, FITTED STAGE. The figure is laid out once at a fixed design size and scaled
+   as one piece to fit the window under the nav, so nothing reflows while it plays or while the window is resized,
+   and the explanation and the buttons are always on screen with the ring. Two designs: wide (1100 x 600) for
+   landscape windows, tall (390 wide) for portrait ones. The script picks the design and the scale. */
+.r2-fit{position:relative;margin:0 auto;scroll-margin-top:calc(var(--nav-h,64px) + 8px)}
+.r2js .r2-fit{overflow:visible}
+.r2js .r2-fit>.r2-stage{position:absolute;left:0;top:0;transform-origin:0 0}
+.r2js.r2-tall .r2-fit>.r2-stage{width:390px}
+.r2js.r2-wide .r2-fit>.r2-stage{width:1100px;height:600px;padding:0;border-radius:18px}
+.r2-wide .r2-diagram{position:absolute;left:28px;top:12px;width:553px;margin:0}
+.r2-wide .r2-panel{position:absolute;left:620px;top:64px;width:440px;height:340px;margin:0;padding:0;border:0}
+.r2-wide .r2-caret,.r2-wide .r2-leader{display:none}
+.r2-wide .r2-card{position:absolute;left:0;top:0;right:0;padding:2px 0 4px 22px;border-left:3px solid #f26a1b}
+.r2-wide .r2-key{left:22px;right:0;top:0}
+.r2-wide .r2-eyebrow{font-size:14px}
+.r2-wide .r2-event{font-size:34px;line-height:1.1;margin-top:8px}
+.r2-wide .r2-reply{font-size:26px;margin-top:8px}
+.r2-wide .r2-discs{margin-top:16px}
+.r2-wide .r2-disc{width:24px;height:24px;font-size:12px}
+.r2-wide .r2-step{font-size:18px;line-height:1.35;min-height:2.7em}
+.r2-wide .r2-ctl{position:absolute;left:620px;right:40px;top:436px;margin:0;padding-top:20px;border-top:1px solid rgba(246,240,228,.12)}
+.r2-wide .r2-seg{height:32px}
+.r2-wide .r2-btns{margin-top:16px;gap:10px}
+.r2-wide .r2-btns .b-prev,.r2-wide .r2-btns .b-play{flex:0 0 112px}
+.r2-wide .r2-btns .b-next{flex:1}
+.r2-in .totop{opacity:0!important;pointer-events:none!important}
+/* 4.35: the animator panel's pass, on Dean's cards of 7 Oct 2026 */
+.r2-step{display:none!important}
+.r2-tall .r2-caret{display:none}
+.r2-tall .r2-seg{height:36px}
+.r2-endcap{position:absolute;left:6px;right:6px;top:14px;opacity:0;pointer-events:none;font:400 15px/1.45 var(--body);color:rgba(246,240,228,.88)}
+.r2-wide .r2-endcap{left:0;right:0;top:0;padding:2px 0 4px 22px;border-left:3px solid #f26a1b;font-size:20px;line-height:1.5}
+.r2fig.r2-end .r2-btns .b-play{background:#ffb52e;color:#100d0b;border-color:#ffb52e}
+.r2fig.r2-end .r2-btns .b-next{box-shadow:none}
+.r2-list ul{margin:0 0 1rem!important;padding:0!important;list-style:none}
+.r2-panel{touch-action:pan-y}
 .r2-list{margin-top:16px;font:400 14px/1.55 var(--body);color:rgba(16,13,11,.85)}
 .r2-list h3{font:700 12px/1.3 var(--head)!important;letter-spacing:.16em;text-transform:uppercase;color:#a83f04;margin:0 0 .5rem!important}
 .r2-list ol{margin:0 0 1rem 2rem!important;padding:0!important}
@@ -938,7 +950,7 @@ details.srcbox h3{font-size:1rem!important;margin-top:1.4rem!important}
 .r2fig .r2-seg button i{height:6px;border-radius:3px}
 .r2fig .r2-seg button.cur i{height:9px}
 .r2fig .r2-face.lit{transition:opacity .38s cubic-bezier(.4,0,.2,1)}
-.r2fig .r2-card{transition:opacity .32s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.22,1,.36,1),left .5s cubic-bezier(.22,1,.36,1),top .5s cubic-bezier(.22,1,.36,1)}
+.r2fig .r2-card{transition:opacity .32s cubic-bezier(.4,0,.2,1)}
 .r2fig .r2-leader{transition:opacity .32s ease,left .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),top .5s cubic-bezier(.22,1,.36,1)}
 .r2fig .r2-caret{transition:opacity .32s ease,transform .5s cubic-bezier(.22,1,.36,1)}
 .r2fig .r2-seg button i{transition:background .35s ease,height .35s ease}
@@ -1202,6 +1214,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 
 <figure class="r2fig" id="r2fig">
 <p class="r2-kicker">ILLUSTRATIVE &middot; THE SERVICES IN MY OWN JOURNEY &middot; EACH TO BE INVITED TO SHAPE IT &middot; NONE ONBOARDED &middot; SEE THE FOOT OF THE PAGE</p>
+<div class="r2-fit">
 <div class="r2-stage" role="group" aria-label="The Continuity Layer, animated as one person's journey across all six services">
 
 <div class="r2-diagram">
@@ -1210,7 +1223,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 <circle cx="700" cy="420" r="170" fill="none" stroke="#1d1814" stroke-width="56"/><circle cx="700" cy="420" r="198" fill="none" stroke="#f6f0e4" stroke-width="4"/><circle cx="700" cy="420" r="142" fill="none" stroke="#f6f0e4" stroke-width="2" stroke-opacity=".45"/>
 <line id="r2-pipe-cgl" x1="700.0" y1="160.8" x2="700.0" y2="250.0" stroke="#f6f0e4" stroke-width="3"/>
 <line id="r2-pipe-adhd" x1="882.8" y1="314.4" x2="847.2" y2="335.0" stroke="#f6f0e4" stroke-width="3"/>
-<line id="r2-pipe-alc" x1="882.8" y1="525.6" x2="847.2" y2="505.0" stroke="#f6f0e4" stroke-width="3"/>
+<line id="r2-pipe-alc" x1="904.4" y1="538.0" x2="847.2" y2="505.0" stroke="#f6f0e4" stroke-width="3"/>
 <line id="r2-pipe-mind" x1="700.0" y1="679.2" x2="700.0" y2="590.0" stroke="#f6f0e4" stroke-width="3"/>
 <line id="r2-pipe-crs" x1="517.2" y1="525.6" x2="552.8" y2="505.0" stroke="#f6f0e4" stroke-width="3"/>
 <line id="r2-pipe-rce" x1="517.2" y1="314.4" x2="552.8" y2="335.0" stroke="#f6f0e4" stroke-width="3"/>
@@ -1220,8 +1233,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 <line id="r2-chan-mind" x1="700.0" y1="590.0" x2="700.0" y2="504.0" stroke="#f6f0e4" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
 <line id="r2-chan-crs" x1="552.8" y1="505.0" x2="627.3" y2="462.0" stroke="#f6f0e4" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
 <line id="r2-chan-rce" x1="552.8" y1="335.0" x2="627.3" y2="378.0" stroke="#f6f0e4" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
-<polyline points="880.7,517.4 870.8,518.6 874.7,527.8" fill="none" stroke="#f6f0e4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="868.2,510.2 858.3,511.4 862.2,520.6" fill="none" stroke="#f6f0e4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="897.7,542.3 894.0,532.0 904.8,530.1" fill="none" stroke="#f6f0e4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="886.5,535.8 882.7,525.5 893.5,523.6" fill="none" stroke="#f6f0e4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
 <line class="r2-lead" x1="842" y1="147" x2="720" y2="236" stroke="#f6f0e4" stroke-width="1.5" opacity=".45"/>
 <line class="r2-lead" x1="904" y1="421" x2="876" y2="414" stroke="#f6f0e4" stroke-width="1.5" opacity=".45"/>
 <path id="r2-under" d="M785.0 272.8 L791.5 273.4 L798.0 274.7 L803.9 277.1 L808.9 280.6 L813.2 285.1 L816.5 290.6 L819.1 296.6 L821.3 303.0 L823.3 309.0 L825.6 314.6 L828.5 319.6 L832.1 324.0 L836.6 327.8 L841.8 331.4 L847.2 335.0 L852.6 338.8 L857.5 343.3 L861.3 348.1 L864.0 353.7 L865.5 359.8 L865.6 366.2 L864.8 372.8 L863.5 379.2 L862.3 385.5 L861.5 391.5 L861.5 397.3 L862.4 402.9 L864.4 408.5 L867.1 414.2 L870.0 420.0 L872.7 426.1 L874.8 432.2 L875.7 438.4 L875.3 444.6 L873.3 450.6 L870.3 456.2 L866.4 461.4 L862.0 466.4 L857.8 471.3 L854.0 476.0 L851.2 481.1 L849.2 486.4 L848.1 492.2 L847.6 498.5 L847.2 505.0 L846.6 511.5 L845.3 518.0 L842.9 523.9 L839.4 528.9 L834.9 533.2 L829.4 536.5 L823.4 539.1 L817.0 541.3 L811.0 543.3 L805.4 545.6 L800.4 548.5 L796.0 552.1 L792.2 556.6 L788.6 561.8 L785.0 567.2 L781.2 572.6 L776.7 577.5 L771.9 581.3 L766.3 584.0 L760.2 585.5 L753.8 585.6 L747.2 584.8 L740.8 583.5 L734.5 582.3 L728.5 581.5 L722.7 581.5 L717.1 582.4 L711.5 584.4 L705.8 587.1 L700.0 590.0 L693.9 592.7 L687.8 594.8 L681.6 595.7 L675.4 595.3 L669.4 593.3 L663.8 590.3 L658.6 586.4 L653.6 582.0 L648.7 577.8 L644.0 574.0 L638.9 571.2 L633.6 569.2 L627.8 568.1 L621.5 567.6 L615.0 567.2 L608.5 566.6 L602.0 565.3 L596.1 562.9 L591.1 559.4 L586.8 554.9 L583.5 549.4 L580.9 543.4 L578.7 537.0 L576.7 531.0 L574.4 525.4 L571.5 520.4 L567.9 516.0 L563.4 512.2 L558.2 508.6 L552.8 505.0 L547.4 501.2 L542.5 496.7 L538.7 491.9 L536.0 486.3 L534.5 480.2 L534.4 473.8 L535.2 467.2 L536.5 460.8 L537.7 454.5 L538.5 448.5 L538.5 442.7 L537.6 437.1 L535.6 431.5 L532.9 425.8 L530.0 420.0 L527.3 413.9 L525.2 407.8 L524.3 401.6 L524.7 395.4 L526.7 389.4 L529.7 383.8 L533.6 378.6 L538.0 373.6 L542.2 368.7 L546.0 364.0 L548.8 358.9 L550.8 353.6 L551.9 347.8 L552.4 341.5 L552.8 335.0 L553.4 328.5 L554.7 322.0 L557.1 316.1 L560.6 311.1 L565.1 306.8 L570.6 303.5 L576.6 300.9 L583.0 298.7 L589.0 296.7 L594.6 294.4 L599.6 291.5 L604.0 287.9 L607.8 283.4 L611.4 278.2 L615.0 272.8 L618.8 267.4 L623.3 262.5 L628.1 258.7 L633.7 256.0 L639.8 254.5 L646.2 254.4 L652.8 255.2 L659.2 256.5 L665.5 257.7 L671.5 258.5 L677.3 258.5 L682.9 257.6 L688.5 255.6 L694.2 252.9 L700.0 250.0 L706.1 247.3 L712.2 245.2 L718.4 244.3 L724.6 244.7 L730.6 246.7 L736.2 249.7 L741.4 253.6 L746.4 258.0 L751.3 262.2 L756.0 266.0 L761.1 268.8 L766.4 270.8 L772.2 271.9 L778.5 272.4 Z" fill="none" stroke="#100d0b" stroke-width="5.5" stroke-linejoin="round"/>
@@ -1239,12 +1252,13 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 <circle id="r2-pr-crs" cx="552.8" cy="505" r="21" fill="none" stroke="#f26a1b" stroke-width="4" opacity="0"/>
 <circle id="r2-pu-rce" cx="552.8" cy="335" r="21" fill="none" stroke="#100d0b" stroke-width="7" opacity="0"/>
 <circle id="r2-pr-rce" cx="552.8" cy="335" r="21" fill="none" stroke="#f26a1b" stroke-width="4" opacity="0"/>
-<g id="r2-sw-cgl"><circle class="r2-node" cx="700" cy="250" r="31" fill="#ffd27a" stroke="#100d0b" stroke-width="4"/><circle cx="700" cy="250" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(40 700 250)"/><text x="700" y="258.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#100d0b">01</text></g>
-<g id="r2-sw-adhd"><circle class="r2-node" cx="847.2" cy="335" r="31" fill="#ffb52e" stroke="#100d0b" stroke-width="4"/><circle cx="847.2" cy="335" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(100 847.2 335)"/><text x="847.2" y="343.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#100d0b">02</text></g>
-<g id="r2-sw-alc"><circle class="r2-node" cx="847.2" cy="505" r="31" fill="#ff9a1f" stroke="#100d0b" stroke-width="4"/><circle cx="847.2" cy="505" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(160 847.2 505)"/><text x="847.2" y="513.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#100d0b">03</text></g>
-<g id="r2-sw-mind"><circle class="r2-node" cx="700" cy="590" r="31" fill="#f26a1b" stroke="#100d0b" stroke-width="4"/><circle cx="700" cy="590" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(220 700 590)"/><text x="700" y="598.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#ffffff">04</text></g>
-<g id="r2-sw-crs"><circle class="r2-node" cx="552.8" cy="505" r="31" fill="#e0560a" stroke="#100d0b" stroke-width="4"/><circle cx="552.8" cy="505" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(280 552.8 505)"/><text x="552.8" y="513.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#ffffff">05</text></g>
-<g id="r2-sw-rce"><circle class="r2-node" cx="552.8" cy="335" r="31" fill="#c2410c" stroke="#100d0b" stroke-width="4"/><circle cx="552.8" cy="335" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5" stroke-dasharray="104 40" transform="rotate(340 552.8 335)"/><text x="552.8" y="343.5" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="24" fill="#ffffff">06</text></g>
+<circle id="r2-ac-cgl" cx="700" cy="250" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/><circle id="r2-ac-adhd" cx="847.2" cy="335" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/><circle id="r2-ac-alc" cx="847.2" cy="505" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/><circle id="r2-ac-mind" cx="700" cy="590" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/><circle id="r2-ac-crs" cx="552.8" cy="505" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/><circle id="r2-ac-rce" cx="552.8" cy="335" r="41" fill="none" stroke="#f26a1b" stroke-width="3" opacity="0"/>
+<g id="r2-sw-cgl"><circle class="r2-node" cx="700" cy="250" r="31" fill="#ffd27a" stroke="#100d0b" stroke-width="4"/><circle cx="700" cy="250" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5"/></g>
+<g id="r2-sw-adhd"><circle class="r2-node" cx="847.2" cy="335" r="31" fill="#ffb52e" stroke="#100d0b" stroke-width="4"/><circle cx="847.2" cy="335" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5"/></g>
+<g id="r2-sw-alc"><circle class="r2-node" cx="847.2" cy="505" r="31" fill="#ff9a1f" stroke="#100d0b" stroke-width="4"/><circle cx="847.2" cy="505" r="23" fill="none" stroke="#100d0b" stroke-opacity=".75" stroke-width="2.5"/></g>
+<g id="r2-sw-mind"><circle class="r2-node" cx="700" cy="590" r="31" fill="#f26a1b" stroke="#100d0b" stroke-width="4"/><circle cx="700" cy="590" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5"/></g>
+<g id="r2-sw-crs"><circle class="r2-node" cx="552.8" cy="505" r="31" fill="#e0560a" stroke="#100d0b" stroke-width="4"/><circle cx="552.8" cy="505" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5"/></g>
+<g id="r2-sw-rce"><circle class="r2-node" cx="552.8" cy="335" r="31" fill="#c2410c" stroke="#100d0b" stroke-width="4"/><circle cx="552.8" cy="335" r="23" fill="none" stroke="#ffffff" stroke-opacity=".75" stroke-width="2.5"/></g>
 <rect x="651" y="341" width="98" height="158" rx="17" fill="#1d1814" stroke="#f6f0e4" stroke-opacity=".3" stroke-width="1.5"/>
 <rect x="659" y="351" width="82" height="138" rx="9" fill="#17130f"/>
 <g id="r2-person" fill="#f6f0e4" opacity=".7"><circle cx="700" cy="368" r="8.5"/><path d="M686 390 C686 381 692 378 700 378 C708 378 714 381 714 390 Z"/></g>
@@ -1262,7 +1276,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 </div>
 <div class="r2-panel">
 <span class="r2-caret" aria-hidden="true"></span>
-<div class="r2-card" aria-hidden="true"><div class="r2-eyebrow"><span class="r2-day"></span><span class="r2-sep"> · </span><span class="r2-who"></span></div><div class="r2-event"></div><div class="r2-reply"></div><div class="r2-discs"><span class="r2-disc u" aria-hidden="true">1</span><span class="r2-disc u" aria-hidden="true">2</span><span class="r2-disc u" aria-hidden="true">3</span><span class="r2-disc u" aria-hidden="true">4</span><span class="r2-disc u" aria-hidden="true">5</span><span class="r2-disc u" aria-hidden="true">6</span></div><div class="r2-step"></div></div>
+<div class="r2-card" aria-hidden="true"><div class="r2-eyebrow"><span class="r2-day"></span><span class="r2-sep"> · </span><span class="r2-who"></span></div><div class="r2-event"></div><div class="r2-reply"></div><div class="r2-step"></div></div>
+<div class="r2-endcap" aria-hidden="true"></div>
 <div class="r2-key" aria-hidden="true"><div class="kh">CONTINUITY LOGIN</div><div class="kg"><div class="kr"><b>CGL</b><span>Micro-Checkins</span></div><div class="kr"><b>CPFT ADULT ADHD TEAM</b><span>Status Updates</span></div><div class="kr"><b>ALCOHOL LIAISON</b><span>A&amp;E Bedside attended</span></div><div class="kr"><b>MIND / WORKWELL</b><span>Status Updates</span></div><div class="kr"><b>CRS</b><span>Micro-Checkins</span></div><div class="kr"><b>RCE WELLBEING HUB</b><span>Micro Waiting Prompts</span></div></div></div>
 <div class="r2-leader" aria-hidden="true"></div>
 </div>
@@ -1272,7 +1287,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 </div>
 <div class="r2-live r2-sr" aria-live="polite"></div>
 </div>
-<div class="r2-list"><h3>WHAT HAPPENS</h3><ol class="r2-steps"><li>Communications submitted to layer</li><li>Events logged</li><li>Thread updated</li><li>Layer receives and delivers messages to user</li><li>Responses logged</li><li>Event becomes visible to Partners</li></ol><ol class="r2-beats"><li>Day 1 · CGL · Enrolled — token created, consent captured</li><li>Day 1 · CGL · Micro check-in sent<br>Check-in response — the person replied</li><li>Day 2 · RCE Wellbeing Hub · Course prompt sent</li><li>Day 4 · RCE Wellbeing Hub · Attendance logged</li><li>Day 9 · CGL · Partner action — follow-up logged</li><li>Day 11 · CPFT Adult ADHD Team · ADHD appointment booked</li><li>Day 13 · CPFT Adult ADHD Team · ADHD next-step status updated</li><li>Day 15 · Alcohol Liaison · A&amp;E Bedside attended</li><li>Day 18 · Layer rule → CGL’s reviewer · Silence flag — no reply within the agreed window</li><li>Day 18 · CGL · Partner action — follow-up logged</li><li>Day 22 · CGL’s reviewer · Review scheduled</li><li>Aftercare · CRS · Micro check-in sent<br>Check-in response — the person replied</li><li>Aftercare · CRS · Micro check-in sent<br>Check-in response — the person replied</li></ol></div>
+</div>
+<div class="r2-list"><h3>WHAT HAPPENS</h3><ul class="r2-beats"><li>Day 1 · CGL · Enrolled — token created, consent captured</li><li>Day 1 · CGL · Micro check-in sent<br>Check-in response — the person replied</li><li>Day 2 · RCE Wellbeing Hub · Course prompt sent</li><li>Day 4 · RCE Wellbeing Hub · Attendance logged</li><li>Day 9 · CGL · Partner action — follow-up logged</li><li>Day 11 · CPFT Adult ADHD Team · ADHD appointment booked</li><li>Day 13 · CPFT Adult ADHD Team · ADHD next-step status updated</li><li>Day 15 · Alcohol Liaison · A&amp;E Bedside attended</li><li>Day 18 · Layer rule → CGL’s reviewer · Silence flag — no reply within the agreed window</li><li>Day 18 · CGL · Partner action — follow-up logged</li><li>Day 22 · CGL’s reviewer · Review scheduled</li><li>Aftercare · CRS · Micro check-in sent<br>Check-in response — the person replied</li><li>Aftercare · CRS · Micro check-in sent<br>Check-in response — the person replied</li></ul></div>
 <figcaption>All agreed and consented Thread events are logged on Partner Nodes. Each partner can see the relevant continuity status &mdash; not another service&rsquo;s clinical notes. Existing service channels remain unaffected. The full pilot, with all six services connected.</figcaption>
 </figure>
 <script type="application/json" id="relay-beats">
@@ -1309,7 +1325,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   fig.classList.add('r2js');
 
   var BEATS = JSON.parse(document.getElementById('relay-beats').textContent);
-  var STEPS = $$('.r2-list .r2-steps li').map(function (li) { return li.textContent.trim(); });
+  var STEPS = [];   /* 4.35: no numbered steps (Dean, 7 Oct) */
+  var SHADE = { cgl: '#ffd27a', adhd: '#ffb52e', alc: '#ff9a1f', mind: '#f26a1b', crs: '#ff7e33', rce: '#e0560a' };
   var KEYS = ['cgl', 'adhd', 'alc', 'mind', 'crs', 'rce'];   /* clockwise from 12 o'clock */
   var SV = {
     cgl:  { node: [700, 250],   box: [700, 75] },
@@ -1351,7 +1368,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     el[k] = {
       block: $('.r2-block[data-svc=' + k + ']'), dim: $('.r2-block[data-svc=' + k + '] .r2-face.dim'),
       pipe: $('#r2-pipe-' + k), chan: $('#r2-chan-' + k), sw: $('#r2-sw-' + k),
-      pu: $('#r2-pu-' + k), pr: $('#r2-pr-' + k)
+      pu: $('#r2-pu-' + k), pr: $('#r2-pr-' + k), ac: $('#r2-ac-' + k)
     };
   });
   var thread = $('#r2-thread'), under = $('#r2-under');
@@ -1360,7 +1377,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   var mk = { tile: $('#r2-m-tile'), bub: $('#r2-m-bub'), flag: $('#r2-m-flag') };
   var panel = $('.r2-panel'), card = $('.r2-card'), caret = $('.r2-caret'), keyEl = $('.r2-key'), leader = $('.r2-leader');
   var sEye = $('.r2-eyebrow'), sDay = $('.r2-day'), sWho = $('.r2-who'), sEv = $('.r2-event'), sRe = $('.r2-reply'), sStep = $('.r2-step');
-  var discs = $$('.r2-disc');
+  var discs = $$('.r2-disc'), endCap = $('.r2-endcap'), capEl = $('figcaption');
+  if (endCap && capEl) endCap.textContent = capEl.textContent.replace(/\s+/g, ' ').trim();   /* the caption's own words */
   var segBox = $('.r2-seg'), bPrev = $('.b-prev'), bPlay = $('.b-play'), bNext = $('.b-next');
   var live = $('.r2-live');
 
@@ -1381,11 +1399,17 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     BEATMARKS[bi] = [];
     for (var j = 0; j < n; j++) { MARKS.push({ svc: b.svc, hollow: b.kind === 'flag', beat: bi }); BEATMARKS[bi].push(MARKS.length - 1); count[b.svc] = (count[b.svc] || 0) + 1; }
   });
-  MARKS.forEach(function (m) {
-    pos[m.svc] = pos[m.svc] || 0;
-    var k = pos[m.svc]++, n = count[m.svc], off = Math.round((k - (n - 1) / 2) * 13);   /* 13 samples = 26 units */
-    var q = PTS[wrap(SV[m.svc].ti + off)];
-    m.x = q[0]; m.y = q[1];
+  /* 4.35 (Dean, 7 Oct: "space out the logging dots"; the animator panel): each service's dots start 52 units clear of its
+     node and run one way into its own stretch of Thread; a reply sits 16 units after its message, the next event 24 units on.
+     CGL's Days 1-9 run clockwise and its Days 18-22 anticlockwise, so every stretch holds one service's run. */
+  var CW = PTS[wrap(SV.cgl.ti + 10)][0] > SV.cgl.node[0] ? 1 : -1;   /* which way along the Thread is clockwise */
+  var RUN = { adhd: 1, alc: 1, mind: 1, crs: -1, rce: -1 }, M0 = 26, MPAIR = 8, MGAP = 12, MR = 6.5, cur = {};   /* samples (about 2 units each) */
+  BEATS.forEach(function (b, bi) {
+    var dir = b.svc === 'cgl' ? (bi < 8 ? 1 : -1) : RUN[b.svc], key = b.svc + dir;
+    BEATMARKS[bi].forEach(function (mi, j) {
+      var c = cur[key]; c = c === undefined ? M0 : c + (j ? MPAIR : MGAP); cur[key] = c;
+      var q = PTS[wrap(SV[b.svc].ti + CW * dir * c)]; MARKS[mi].x = q[0]; MARKS[mi].y = q[1];
+    });
   });
   function circle(g, x, y, attrs) { var c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); c.setAttribute('r', 0); for (var a in attrs) c.setAttribute(a, attrs[a]); g.appendChild(c); return c; }
   function makeMark(g, m, ghost) {
@@ -1416,7 +1440,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     }
     return [700, 420];
   }
-  function isLap() { return fig.clientWidth >= 1060; }
+  var fit = fig.querySelector('.r2-fit'), MODE = null, K = 1;   /* 4.34: 'wide' or 'tall', and the scale it is drawn at */
+  function isLap() { return MODE === 'wide'; }
   var MS = 1;   /* marker scale: x1.3 on a phone */
   function place(m, xy, s, op) { m.setAttribute('transform', 'translate(' + xy[0].toFixed(1) + ' ' + xy[1].toFixed(1) + ') scale(' + (s * MS).toFixed(3) + ')'); m.setAttribute('opacity', op); }
   function swell(k, s) { var n = SV[k].node; el[k].sw.setAttribute('transform', 'translate(' + n[0] + ' ' + n[1] + ') scale(' + s.toFixed(3) + ') translate(' + (-n[0]) + ' ' + (-n[1]) + ')'); }
@@ -1433,14 +1458,16 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   function setWake(w) { V.wake = w; person.setAttribute('opacity', lerp(.3, .7, w).toFixed(3)); }
   function setScr(which, o) { V[which] = o; (which === 'scrIn' ? scrIn : scrRe).setAttribute('opacity', o.toFixed(3)); }
   function setKey(o) { V.key = o; keyEl.style.opacity = o.toFixed(3); }
+  function setAct(k, o) { V['act' + k] = o; el[k].ac.setAttribute('opacity', o.toFixed(3)); }
+  function setEnd(o) { V.end = o; if (endCap) endCap.style.opacity = o.toFixed(3); }
   function setCard(o, y) { V.card = o; card.style.opacity = o.toFixed(3); card.style.transform = 'translateY(' + (y || 0).toFixed(1) + 'px)'; leader.style.opacity = o.toFixed(3); caret.style.opacity = o.toFixed(3); }
   function slot(s, o, y) { s.style.opacity = o.toFixed(3); s.style.transform = 'translateY(' + (y || 0).toFixed(1) + 'px)'; }
   function setDiscs(states) { discs.forEach(function (d, i) { d.className = 'r2-disc ' + states[i]; }); }
-  function pulse(k, f, big) { var r = 21 + f * (big ? 31 : 23), o = (.9 * (1 - f)).toFixed(3); [el[k].pu, el[k].pr].forEach(function (c) { c.setAttribute('r', r.toFixed(2)); c.setAttribute('opacity', f >= 1 ? 0 : o); }); }
+  function pulse(k, f, big) { var r = 35 + f * (big ? 24 : 18), o = (.85 * (1 - f)).toFixed(3); [el[k].pu, el[k].pr].forEach(function (c) { c.setAttribute('r', r.toFixed(2)); c.setAttribute('opacity', f >= 1 ? 0 : o); }); }
   function hideMarkers() { ['tile', 'bub', 'flag'].forEach(function (m) { mk[m].setAttribute('opacity', 0); }); }
 
   function reset() {
-    KEYS.forEach(function (k) { setDim(k, 1); setPipe(k, .45); setChan(k, .45); swell(k, 1); pulse(k, 1); });
+    KEYS.forEach(function (k) { setDim(k, 1); setPipe(k, .45); setChan(k, .45); swell(k, 1); pulse(k, 1); setAct(k, 0); }); setEnd(0);
     setLabels(0); setDraw(0); setThick(0); setWake(0); setScr('scrIn', 0); setScr('scrRe', 0);
     markEls.forEach(function (m) { setMark(m, 0, 1); }); ghostEls.forEach(function (g) { setMark(g, 0, 1); }); setGhostOp(1);
     hideMarkers(); setCard(0); setKey(0); setDiscs(['u', 'u', 'u', 'u', 'u', 'u']);
@@ -1455,7 +1482,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
 
   /* ---------- the card ---------- */
   function fillCard(b) {
-    sDay.textContent = b.day; sWho.textContent = b.who; sEv.textContent = b.ev;
+    sDay.textContent = b.day; sWho.textContent = b.who; sEv.textContent = b.ev; sWho.style.color = SHADE[b.svc];
     sRe.textContent = (b.kind === 'msg' && b.reply && b.replyEv) ? b.replyEv : '';
     sStep.textContent = '';
     slot(sEye, 1); slot(sEv, 1); slot(sRe, 0); slot(sStep, 1);
@@ -1464,19 +1491,10 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     var lap = isLap();
     card.classList.toggle('r', !!RIGHT[k]); card.classList.toggle('l', !RIGHT[k]);
     leader.classList.toggle('r', !!RIGHT[k]); leader.classList.toggle('l', !RIGHT[k]);
-    var sr = stage.getBoundingClientRect(), br = el[k].block.getBoundingClientRect();
-    if (lap) {
-      var sw = sr.width, sh = sr.height, cw = card.offsetWidth, ch = card.offsetHeight;
-      var left = RIGHT[k] ? sw * 828 / 1100 : sw * 24 / 1100;
-      var topPx = Math.min(br.top - sr.top, sh * 561 / 640 - ch); topPx = Math.max(topPx, sh * 24 / 640);
-      card.style.left = left + 'px'; card.style.top = topPx + 'px';
-      var y = br.top - sr.top + br.height / 2, x0, x1;
-      if (RIGHT[k]) { x0 = br.right - sr.left; x1 = left; } else { x0 = left + cw; x1 = br.left - sr.left; }
-      leader.style.left = x0 + 'px'; leader.style.width = Math.max(0, x1 - x0) + 'px'; leader.style.top = (y - .75) + 'px';
-    } else {
-      card.style.left = ''; card.style.top = '';
-      var pr = panel.getBoundingClientRect();
-      caret.style.transform = 'translateX(' + (br.left + br.width / 2 - pr.left - 12).toFixed(1) + 'px)';
+    card.style.left = ''; card.style.top = '';   /* 4.34: one fixed place for the card, so nothing slides while it plays */
+    if (!lap) {
+      var br = el[k].block.getBoundingClientRect(), pr = panel.getBoundingClientRect();
+      caret.style.transform = 'translateX(' + ((br.left + br.width / 2 - pr.left) / K - 12).toFixed(1) + 'px)';
     }
   }
 
@@ -1491,6 +1509,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
       S.act(t0, d, fromTo(function () { return V['dim' + x]; }, function (v) { setDim(x, v); }, x === k ? 0 : 1), E.settle);
       S.act(t0, d, fromTo(function () { return V['pipe' + x]; }, function (v) { setPipe(x, v); }, x === k ? 1 : .45), E.settle);
       S.act(t0, d, fromTo(function () { return V['chan' + x]; }, function (v) { setChan(x, v); }, .45), E.settle);
+      S.act(t0, d, fromTo(function () { return V['act' + x]; }, function (v) { setAct(x, v); }, x === k ? 1 : 0), E.settle);
     });
   }
   function textAct(S, t0, apply, slots) {
@@ -1517,7 +1536,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     S.act(t0, .4, function (p) { var e = E.swell(p); place(mk[m], n, 1 - e, 1 - e); if (p >= 1) mk[m].setAttribute('opacity', 0); });
     return t0 + .6;
   }
-  function growMark(S, t0, mi) { var o = markEls[mi], h = MARKS[mi].hollow; S.act(t0, h ? .8 : .45, function (p) { setMark(o, 9 * (h ? E.hollow(p) : E.mark(p))); }); return t0 + (h ? .8 : .45); }
+  function growMark(S, t0, mi) { var o = markEls[mi], h = MARKS[mi].hollow; S.act(t0, h ? .8 : .45, function (p) { setMark(o, MR * (h ? E.hollow(p) : E.mark(p))); }); return t0 + (h ? .8 : .45); }
   function receivers(k) { return KEYS.filter(function (x) { return x !== k && x !== 'alc'; }); }   /* Alcohol Liaison is inbound only (TL-0776, Dean's card 5) */
 
   function compileOpening() {
@@ -1527,12 +1546,10 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
       S.act(t0, .32, function (p) { setDim(k, 1 - E.light(p)); setPipe(k, lerp(.45, 1, E.light(p))); setChan(k, lerp(.45, 1, E.light(p))); });
     });
     S.act(1.8, .4, function (p) { var e = E.tin(p); labs[0].style.opacity = e.toFixed(3); leadL[0].setAttribute('opacity', (e * .45).toFixed(3)); V.labels = e * .5; });
-    S.act(2.6, 1.6, function (p) { setDraw(E.draw(p)); });
-    S.act(3.6, .4, function (p) { var e = E.tin(p); labs[1].style.opacity = e.toFixed(3); leadL[1].setAttribute('opacity', (e * .45).toFixed(3)); if (p >= 1) setLabels(1); });
-    BEATS.forEach(function (b, bi) { S.act(4.6 + .4 * bi, .3, function (p) { setMark(ghostEls[bi], 9 * E.mark(p)); }); });
-    S.act(9.9, .4, function (p) { if (!isLap() && !narrowNames()) return; if (!isLap()) setKey(E.tin(p)); });
-    S.act(10.0, .5, function (p) { var s = 1 + .04 * Math.sin(Math.PI * E.swell(p)); bNext.style.transform = p >= 1 ? '' : 'scale(' + s.toFixed(3) + ')'; });
-    S.len = 10.5;
+    S.act(2.4, 2.2, function (p) { setDraw(E.draw(p)); });   /* 4.35: no grey preview dots; the Thread draws more slowly */
+    S.act(4.0, .4, function (p) { var e = E.tin(p); labs[1].style.opacity = e.toFixed(3); leadL[1].setAttribute('opacity', (e * .45).toFixed(3)); if (p >= 1) setLabels(1); });
+    S.act(4.7, .5, function (p) { var s = 1 + .04 * Math.sin(Math.PI * E.swell(p)); bNext.style.transform = p >= 1 ? '' : 'scale(' + s.toFixed(3) + ')'; });
+    S.len = 5.3;
     return S;
   }
   function narrowNames() { return dia.clientWidth < 476; }
@@ -1569,14 +1586,10 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     var H = hold(b.ev, seen); seen[b.ev] = 1;
     nextText = land + Math.max(1.2, H / 2); T = land;
 
-    var current = 0;
-    function step(n, motion) {
-      var a = Math.max(T, nextText), line = STEPS[n - 1], h = hold(line, seen); seen[line] = 1;
-      var prevN = current; current = n;
-      textAct(S, a, function () { sStep.textContent = line; }, [sStep]);
-      S.act(a, 0, function () { var st = ds.slice(); used.forEach(function (u) { if (u < n) st[u - 1] = 'd'; }); st[n - 1] = 'c'; setDiscs(st); });
-      var lnd = a + .52, ms = lnd + .3, me = motion ? motion(ms) : ms;
-      nextText = Math.max(lnd + h, me + .2); T = me;
+    var firstMove = true;
+    function step(n, motion) {   /* 4.35: no numbered steps on screen (Dean, 7 Oct); the first move waits for the card to be read */
+      var a = firstMove ? Math.max(T, nextText) : T + .15, me = motion ? motion(a) : a;
+      firstMove = false; T = me;
     }
     var edge = boxEdge(k), node = SV[k].node, ph = phoneEdge(k);
 
@@ -1626,16 +1639,17 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     }
     step(6, function (ms) {
       var R = receivers(k);
+      function far(x) { var d = Math.abs(KEYS.indexOf(x) - KEYS.indexOf(k)); return Math.min(d, 6 - d) - 1; }   /* 4.35: the ripple travels round the Layer */
       if (b.all) {
         R.forEach(function (x) {
           S.act(ms, .6, fromTo(function () { return V['dim' + x]; }, function (v) { setDim(x, v); }, 0), E.light);
           S.act(ms, .6, fromTo(function () { return V['pipe' + x]; }, function (v) { setPipe(x, v); }, 1), E.light);
-          S.act(ms + .3, 1.1, function (p) { pulse(x, E.pulse(p), true); });
+          S.act(ms + .3 + .12 * far(x), 1.1, function (p) { pulse(x, E.pulse(p), true); });
         });
-        return ms + 1.4;
+        return ms + 1.64;
       }
-      R.forEach(function (x) { S.act(ms, .9, function (p) { pulse(x, E.pulse(p), false); }); });
-      return ms + .9;
+      R.forEach(function (x) { S.act(ms + .12 * far(x), 1.0, function (p) { pulse(x, E.pulse(p), false); }); });
+      return ms + 1.24;
     });
     if (b.kind === 'msg') {
       var sl = T + .7;
@@ -1643,7 +1657,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
       S.act(sl, .6, fromTo(function () { return V['chan' + k]; }, function (v) { setChan(k, v); }, .45), E.settle);
       T = sl + .6;
     }
-    S.len = Math.max(T, nextText);
+    S.len = Math.max(T, nextText, land + H);
     return S;
   }
   function compileEnding() {
@@ -1656,7 +1670,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     });
     S.act(1.0, .8, fromTo(function () { return V.thick; }, setThick, 1), E.travel);
     S.act(2.0, .4, fromTo(function () { return V.labels; }, setLabels, 1), E.tin);
-    S.act(2.0, .4, function (p) { if (!isLap() && narrowNames()) setKey(E.tin(p)); });
+    KEYS.forEach(function (x) { S.act(.2, .4, fromTo(function () { return V['act' + x]; }, function (v) { setAct(x, v); }, 0), E.out); });
+    S.act(2.0, .4, function (p) { if (!isLap() && narrowNames()) setKey(E.tin(p)); else setEnd(E.tin(p)); });
     S.len = 2.5;
     return S;
   }
@@ -1686,8 +1701,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     if (!running) return;
     var dt = last ? Math.min(.05, (now - last) / 1000) : 0; last = now;
     if (seg && t < seg.len) {
-      var W = segId === -1 ? 0 : 1.0, TG = segId === -1 ? 3.0 : segId === 0 ? 5.3 : 3.7;   /* 4.27: a further 20% slower (Dean) */   /* 4.20: the first .7s of each beat (the card hand-over) runs at real speed, the rest is compressed — opening ~2s, beat 1 ~3.5s, then ~2.5s a beat */
-      t += dt * (t < W ? 1 : Math.max(1, (seg.len - W) / (TG - W)));
+      var W = segId === -1 ? 0 : 1.0, RATE = segId === -1 ? 1.6 : 1.9;   /* 4.35 (Dean's card, 7 Oct): one steady speed, so every move can be seen */   /* 4.27: a further 20% slower (Dean) */   /* 4.20: the first .7s of each beat (the card hand-over) runs at real speed, the rest is compressed — opening ~2s, beat 1 ~3.5s, then ~2.5s a beat */
+      t += dt * (t < W ? 1 : RATE);
       fig.classList.toggle('r2-quick', segId > 0);
       seg.A.forEach(function (a) {
         if (a.done || t < a.t0) return;
@@ -1747,6 +1762,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
     var f = document.activeElement;
     bPrev.disabled = segId === null || segId === -1;
     bNext.disabled = segId === 13;
+    fig.classList.toggle('r2-end', segId === 13);
     if (f && f.disabled) (f === bNext ? bPlay : bNext).focus();   /* never strand keyboard focus on a disabled button */
     live.setAttribute('aria-live', mode === 'step' ? 'polite' : 'off');
   }
@@ -1761,7 +1777,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   });
   segBox.addEventListener('keydown', function (e) {
     var i = segBtns.indexOf(document.activeElement); if (i < 0) return;
-    var j = e.key === 'ArrowRight' ? Math.min(12, i + 1) : e.key === 'ArrowLeft' ? Math.max(0, i - 1) : -1;
+    var j = e.key === 'ArrowRight' ? Math.min(12, i + 1) : e.key === 'ArrowLeft' ? Math.max(0, i - 1) : e.key === 'Home' ? 0 : e.key === 'End' ? 12 : -1;
     if (j < 0) return; e.preventDefault(); e.stopPropagation();
     segBtns[i].tabIndex = -1; segBtns[j].tabIndex = 0; segBtns[j].focus();
   });
@@ -1774,8 +1790,8 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   });
   /* swipe on the diagram, phone only */
   var sx = null, sy = null;
-  dia.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; sx = e.clientX; sy = e.clientY; });
-  dia.addEventListener('pointerup', function (e) {
+  stage.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse' || (e.target.closest && e.target.closest('.r2-ctl'))) return; sx = e.clientX; sy = e.clientY; });
+  stage.addEventListener('pointerup', function (e) {
     if (sx === null) return; var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
     if (Math.abs(dx) > 40 && Math.abs(dx) > 1.5 * Math.abs(dy)) { if (dx < 0) { mode = 'step'; next(false); } else back(); }
   });
@@ -1783,32 +1799,84 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   /* ---------- layout ---------- */
   var lapNow = null;
   function measurePanel() {
-    if (isLap()) { panel.style.minHeight = ''; return; }
+    panel.style.minHeight = '';
+    if (isLap()) { panel.style.height = ''; return; }
     var keep = [sDay.textContent, sWho.textContent, sEv.textContent, sRe.textContent, sStep.textContent], maxH = 0;
     var reH = sRe.style.opacity;
     BEATS.forEach(function (b) {
       sDay.textContent = b.day; sWho.textContent = b.who; sEv.textContent = b.ev;
       sRe.textContent = (b.kind === 'msg' && b.reply && b.replyEv) ? b.replyEv : '';
-      sStep.textContent = STEPS[3];
+      sStep.textContent = '';
       maxH = Math.max(maxH, card.offsetHeight);
     });
     sDay.textContent = keep[0]; sWho.textContent = keep[1]; sEv.textContent = keep[2]; sRe.textContent = keep[3]; sStep.textContent = keep[4]; sRe.style.opacity = reH;
-    maxH = Math.max(maxH, keyEl.offsetHeight);
-    panel.style.minHeight = (maxH + 20) + 'px';
+    maxH = Math.max(maxH, keyEl.offsetHeight, endCap ? endCap.offsetHeight : 0);
+    panel.style.height = (maxH + 20) + 'px';   /* 4.34: a fixed height, so the buttons never move */
+  }
+  /* 4.34: the stage is drawn at one design size and scaled as one piece to fit the window under the nav.
+     Resizing changes only the scale, so nothing inside it moves; the design changes only when the window turns
+     from landscape to portrait (with a margin either side, so it cannot flicker at the edge). */
+  var navEl = document.querySelector('.nav');
+  function navH() {
+    if (!navEl) return 0;
+    var cs = getComputedStyle(navEl);
+    return cs.display === 'none' || (cs.position !== 'sticky' && cs.position !== 'fixed') ? 0 : navEl.getBoundingClientRect().height;
+  }
+  var vhProbe = document.createElement('div');
+  vhProbe.setAttribute('aria-hidden', 'true');
+  vhProbe.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+  document.body.appendChild(vhProbe);
+  function viewH() { return vhProbe.offsetHeight || window.innerHeight; }   /* 4.35: the small viewport height: steady when a phone's toolbar hides, and not changed by pinch-zoom */
+  var TALLH = 700;
+  function fitStage() {
+    var aw = fig.clientWidth, ah = Math.max(220, viewH() - navH() - 16), m = MODE;
+    /* 4.35: the design that draws the ring and the words bigger wins (the wide design's ring and type are about 1.3x the tall one's) */
+    var kw = 1.3 * Math.min(aw / 1100, ah / 600, 1), kt = Math.min(aw / 390, ah / TALLH, 1);
+    if (!m) m = kw >= kt ? 'wide' : 'tall';
+    else if (m === 'wide' && kw < .94 * kt) m = 'tall';
+    else if (m === 'tall' && kw >= 1.06 * kt) m = 'wide';
+    var changed = m !== MODE;
+    if (changed) { MODE = m; fig.classList.toggle('r2-wide', m === 'wide'); fig.classList.toggle('r2-tall', m === 'tall'); measurePanel(); }
+    var W = m === 'wide' ? 1100 : 390, H = m === 'wide' ? 600 : stage.offsetHeight;
+    if (m === 'tall') TALLH = H;
+    K = Math.min(aw / W, ah / H, m === 'wide' ? 1 : 1.4);
+    stage.style.transform = 'scale(' + K.toFixed(4) + ')';
+    fit.style.width = (W * K).toFixed(2) + 'px'; fit.style.height = (H * K).toFixed(2) + 'px';
+    return changed;
   }
   function relayout() {
-    var lap = isLap();
-    MS = lap ? 1 : 1.3;
-    measurePanel();
-    if (segId !== null && seg) {   /* redraw the current moment at the new size */
+    var changed = fitStage();
+    MS = isLap() ? 1 : 1.3;
+    if (changed && segId !== null && seg) {   /* the design changed: redraw the current moment in it */
       var keepT = t, id = segId; baseline(id);
       seg = compile(id, {}); seg.A.forEach(function (a) { if (a.t0 <= keepT) { var p = a.d ? Math.min(1, (keepT - a.t0) / a.d) : 1; a.f(a.e(p)); if (p >= 1) { a.f(1); a.done = true; } } }); t = keepT;
+      if (segId >= 0 && segId <= 12) positionCard(BEATS[segId].svc);
     }
-    lapNow = lap;
+    lapNow = isLap();
   }
-  var rw = 0;
-  if ('ResizeObserver' in window) new ResizeObserver(function () { if (fig.clientWidth !== rw) { rw = fig.clientWidth; relayout(); } }).observe(fig);
-  else window.addEventListener('resize', relayout);
+  /* the lock: while the figure is the thing on screen, it stays where it is, under the nav */
+  var inView = 0, settleT = 0, settling = false, settledOnce = false;
+  function stageTop() { return fit.getBoundingClientRect().top; }
+  function pin() { var d = stageTop() - (navH() + 8); if (Math.abs(d) > 1) window.scrollTo({ top: window.scrollY + d, behavior: 'instant' }); }
+  var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches, lastW = window.innerWidth;
+  function onResize() {
+    if (coarse && window.innerWidth === lastW) return;   /* 4.35: a phone's toolbar showing or hiding is not a resize */
+    lastW = window.innerWidth;
+    var held = inView >= .5; relayout(); if (held) pin();
+  }
+  window.addEventListener('resize', onResize);
+  if ('ResizeObserver' in window) { var rw = 0; new ResizeObserver(function () { if (fig.clientWidth !== rw) { rw = fig.clientWidth; relayout(); } }).observe(fig); }
+  function settle() {   /* scrolling has stopped with most of the figure on screen: bring all of it in, once per visit */
+    if (reduce) return;
+    if (inView < .2) { settledOnce = false; return; }
+    if (settling || settledOnce || inView < .6 || inView >= .995) return;
+    settling = true; settledOnce = true; window.scrollTo({ top: window.scrollY + stageTop() - (navH() + 8), behavior: reduce ? 'instant' : 'smooth' });
+    setTimeout(function () { settling = false; }, 700);
+  }
+  window.addEventListener('scroll', function () { clearTimeout(settleT); settleT = setTimeout(settle, 180); }, { passive: true });
+  function showAll() { if (inView < .995) { settling = true; window.scrollTo({ top: window.scrollY + stageTop() - (navH() + 8), behavior: reduce ? 'instant' : 'smooth' }); setTimeout(function () { settling = false; }, 700); } }
+  [bPrev, bPlay, bNext].forEach(function (b) { b.addEventListener('click', showAll); });
+  segBox.addEventListener('click', showAll);
 
   /* ---------- start ---------- */
   function begin() {
@@ -1818,19 +1886,20 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,160
   }
   reset();
   if (reduce) { baseline(13); applyAll(compile(13, {})); segId = 13; }
-  setSegments(); setButtons();
+  setSegments(); setButtons(); relayout();
   var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
   fontsReady.then(function () {
-    rw = fig.clientWidth; relayout();
+    relayout();
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          var r = e.intersectionRatio;
-          if (!started) { if (r >= .8 || e.intersectionRect.height >= .8 * window.innerHeight) begin(); return; }   /* 4.27: starts once the figure is (nearly) fully in view */
+          var r = e.intersectionRatio; inView = r; if (r >= .995) settledOnce = true;   /* already seen in full: never pulled back */
+          document.documentElement.classList.toggle('r2-in', r >= .5);
+          if (!started) { if (r >= .95) begin(); return; }   /* 4.34: starts when the whole stage is on screen (it always fits) */
           if (r < .35 && running) { autoPaused = true; stop(); }
           else if (r >= .5 && autoPaused) { autoPaused = false; run(); }
         });
-      }, { threshold: [0, .2, .35, .5, .6, .7, .8, .9, 1] }).observe(stage);
+      }, { rootMargin: '-' + Math.round(navH()) + 'px 0px 0px 0px', threshold: [0, .2, .35, .5, .6, .7, .8, .9, .95, .99, 1] }).observe(fit);
     } else begin();
   });
   document.addEventListener('visibilitychange', function () {
